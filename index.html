@@ -1,0 +1,449 @@
+<! DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonopolly - Official Rulebook</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #f39c12;
+            --bg: #ecf0f1;
+            --card-bg: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #34495e);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1. 2rem;
+            opacity: 0.9;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        
+        .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 4px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        nav {
+            background: var(--card-bg);
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        section h2 {
+            color: var(--secondary);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        section h3 {
+            color: var(--primary);
+            margin: 20px 0 10px 0;
+        }
+        
+        . board-image {
+            width: 100%;
+            max-width: 700px;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .card {
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid var(--secondary);
+            text-align: center;
+        }
+        
+        .card h4 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .card img {
+            width: 100%;
+            max-width: 220px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+        
+        .card-legendary {
+            border-left-color: var(--accent);
+            background: linear-gradient(145deg, #fff9e6, #fff3cd);
+        }
+        
+        .card-legendary h4 {
+            color: #d68910;
+        }
+        
+        .card-shield {
+            border-left-color: #3498db;
+            background: linear-gradient(145deg, #e8f4fc, #d4edfc);
+        }
+        
+        .card-shield h4 {
+            color: #2980b9;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: var(--primary);
+            color: white;
+        }
+        
+        tr:hover {
+            background: #f5f5f5;
+        }
+        
+        .petak {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        .petak-merah { background: #e74c3c; }
+        .petak-biru { background: #3498db; }
+        .petak-kuning { background: #f1c40f; }
+        .petak-hijau { background: #2ecc71; }
+        .petak-ungu-muda { background: #9b59b6; }
+        . petak-ungu-pekat { background: #6c3483; }
+        
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        
+        footer a {
+            color: var(--accent);
+        }
+        
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            . card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="sonopolly. png" alt="Logo Sonopolly" class="logo">
+        <h1>SONOPOLLY</h1>
+        <p>Board Game Edukatif Karya Siswa SMAN 1 Lemahabang</p>
+        <span class="badge">Official Rulebook v1.0</span>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#papan">Papan</a></li>
+            <li><a href="#peraturan">Peraturan</a></li>
+            <li><a href="#petak">Petak</a></li>
+            <li><a href="#kartu">Kartu Karomah</a></li>
+            <li><a href="#kredit">Kredit</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="tentang">
+            <h2>Tentang Sonopolly</h2>
+            <p><strong>Sonopolly</strong> adalah permainan papan (<em>board game</em>) edukatif kreasi Kelompok 4 kelas XII. F7 sebagai pemenuhan tugas <em>Project Based Learning</em> (PBL) semester ganjil di SMAN 1 Lemahabang, Kabupaten Cirebon.</p>
+            <br>
+            <p>Permainan ini mengadopsi mekanika dari beberapa permainan populer seperti <strong>Ular Tangga</strong>, <strong>Monopoly</strong>, dan <strong>Stickman Party</strong>.  Pemain ditantang untuk beradu strategi melewati lintasan papan dan mencapai petak <em>Finish</em> lebih dulu daripada pemain lain.</p>
+            <br>
+            <p>Keunikan Sonopolly terletak pada integrasi <em>Obstacle</em>, bonus, dan elemen kuis.  Terdapat puluhan kartu pertanyaan yang menguji wawasan pemain; jika berhasil dijawab, pemain akan mendapatkan <strong>"Kartu Karomah"</strong> yang dapat mengubah jalannya permainan! </p>
+        </section>
+        
+        <section id="papan">
+            <h2>Papan Permainan</h2>
+            <p>Berikut adalah tampilan papan permainan Sonopolly dengan berbagai petak spesial:</p>
+            <img src="Sonofoly-Map_PBL-2. jpg" alt="Papan Sonopolly" class="board-image">
+        </section>
+        
+        <section id="peraturan">
+            <h2>Peraturan Dasar</h2>
+            
+            <h3>Persiapan Permainan</h3>
+            <ol>
+                <li>Bentangkan papan permainan di permukaan yang datar. </li>
+                <li>Kocok dek Kartu Pertanyaan dan Kartu Karomah secara terpisah. </li>
+                <li>Bagikan modal awal sebesar <strong>Rp 200.000</strong> kepada setiap pemain. </li>
+                <li>Setiap pemain memilih satu Pion/Bidak dan meletakkannya di petak Start.</li>
+                <li>Tentukan urutan bermain dengan melempar dadu (angka tertinggi bermain duluan).</li>
+            </ol>
+            
+            <h3>Aturan Main</h3>
+            <ul>
+                <li><strong>Jumlah Pemain:</strong> Maksimal 4 orang. </li>
+                <li><strong>Sistem Giliran:</strong> Bergilir searah jarum jam.</li>
+                <li><strong>Pergerakan:</strong> Lempar 1 dadu, geser bidak sesuai angka yang muncul.</li>
+                <li><strong>Kartu Karomah:</strong> Hanya boleh menggunakan 1 kartu per giliran.</li>
+                <li><strong>Kondisi Menang:</strong> Pemain pertama yang mencapai petak Finish. </li>
+            </ul>
+        </section>
+        
+        <section id="petak">
+            <h2>Jenis-Jenis Petak</h2>
+            
+            <table>
+                <tr>
+                    <th>Warna</th>
+                    <th>Nama</th>
+                    <th>Efek</th>
+                </tr>
+                <tr>
+                    <td><span class="petak petak-merah"></span> Merah</td>
+                    <td>Pertanyaan</td>
+                    <td>Ambil kartu pertanyaan.  Jika benar, dapatkan 1 Kartu Karomah.</td>
+                </tr>
+                <tr>
+                    <td><span class="petak petak-biru"></span> Biru</td>
+                    <td>Kemajuan</td>
+                    <td>Maju 2 petak ke depan. </td>
+                </tr>
+                <tr>
+                    <td><span class="petak petak-kuning"></span> Kuning</td>
+                    <td>Kemunduran</td>
+                    <td>Mundur 2 petak ke belakang.</td>
+                </tr>
+                <tr>
+                    <td><span class="petak petak-hijau"></span> Hijau</td>
+                    <td>Jackpot</td>
+                    <td>Lempar dadu untuk hadiah uang (Rp 25.000 – Rp 100.000).</td>
+                </tr>
+                <tr>
+                    <td><span class="petak petak-ungu-muda"></span> Ungu Muda</td>
+                    <td>Satpam</td>
+                    <td>Bayar Rp 400.000 untuk jalur singkat, atau lewat jalur memutar.</td>
+                </tr>
+                <tr>
+                    <td><span class="petak petak-ungu-pekat"></span> Ungu Pekat</td>
+                    <td>Karomah Exchange</td>
+                    <td>Tukar Rp 100.000 menjadi 1 Kartu Karomah. </td>
+                </tr>
+            </table>
+        </section>
+        
+        <section id="kartu">
+            <h2>Kartu Karomah</h2>
+            <p>Kartu Karomah adalah kartu spesial yang memberikan keuntungan strategis. Setiap pemain hanya boleh menggunakan <strong>1 kartu per giliran</strong> dan semua kartu bersifat <em>sekali pakai</em>.</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <img src="Banjir%20Dadu. jpeg" alt="Kartu Banjir Dadu">
+                    <h4>Banjir Dadu</h4>
+                    <p>Kesempatan untuk melempar dadu sekali lagi setelah langkah pertama. </p>
+                </div>
+                
+                <div class="card">
+                    <img src="Borgol. jpeg" alt="Kartu Borgol">
+                    <h4>Borgol</h4>
+                    <p>Pilih 1 pemain lain untuk dilewat gilirannya.  Dapat ditangkal oleh Pengaman.</p>
+                </div>
+                
+                <div class="card">
+                    <img src="Perampok.jpeg" alt="Kartu Copet">
+                    <h4>Copet</h4>
+                    <p>Ambil uang Rp 50.000 dari pemain lain.  Dapat ditangkal oleh Pengaman.</p>
+                </div>
+                
+                <div class="card">
+                    <img src="Dimas%20Kanjeng.jpeg" alt="Kartu Dimas Kanjeng">
+                    <h4>Dimas Kanjeng</h4>
+                    <p>Gandakan 1/4 (25%) dari total uang yang dimiliki. </p>
+                </div>
+                
+                <div class="card">
+                    <img src="Kerangkeng.jpeg" alt="Kartu Kerangkeng">
+                    <h4>Kerangkeng</h4>
+                    <p>Pemain berikutnya dalam urutan otomatis kehilangan gilirannya.</p>
+                </div>
+                
+                <div class="card">
+                    <img src="Orang%20Dalam.jpeg" alt="Kartu Orang Dalam">
+                    <h4>Orang Dalam</h4>
+                    <p>Lewati penjaga Satpam tanpa membayar Rp 400.000.</p>
+                </div>
+                
+                <div class="card card-shield">
+                    <img src="Pengaman.jpeg" alt="Kartu Pengaman">
+                    <h4>Pengaman</h4>
+                    <p>Kebal dari Kemunduran, Borgol, Kerangkeng, dan Copet selama 1 putaran.</p>
+                </div>
+                
+                <div class="card">
+                    <img src="Transportasi.jpeg" alt="Kartu Transportasi">
+                    <h4>Transportasi</h4>
+                    <p>Langsung maju 6 petak ke arah Finish. </p>
+                </div>
+                
+                <div class="card card-legendary">
+                    <img src="Tukar%20Nasib.jpeg" alt="Kartu Tukar Nasib">
+                    <h4>Tukar Nasib ⭐</h4>
+                    <p><strong>LEGENDARY! </strong> Tukar posisi dengan pemain lain.  TIDAK BISA ditangkal oleh Pengaman! </p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="kredit">
+            <h2>Tim Pengembang</h2>
+            <p><strong>Kelompok 4 — Kelas XII. F7</strong></p>
+            <p>SMAN 1 Lemahabang, Kabupaten Cirebon</p>
+            <p>Project Based Learning (PBL) — Tahun Ajaran 2024/2025</p>
+            <br>
+            <table>
+                <tr>
+                    <th>Peran</th>
+                    <th>Nama</th>
+                </tr>
+                <tr>
+                    <td>Project Manager</td>
+                    <td>[Nama]</td>
+                </tr>
+                <tr>
+                    <td>Game Designer</td>
+                    <td>[Nama]</td>
+                </tr>
+                <tr>
+                    <td>Card Illustrator</td>
+                    <td>[Nama]</td>
+                </tr>
+                <tr>
+                    <td>Content Writer</td>
+                    <td>[Nama]</td>
+                </tr>
+                <tr>
+                    <td>Produksi Fisik</td>
+                    <td>[Nama]</td>
+                </tr>
+                <tr>
+                    <td>Dokumentasi & Video</td>
+                    <td>[Nama]</td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Kelompok 4 XII.F7 SMAN 1 Lemahabang</p>
+        <p>Dibuat untuk Project Based Learning</p>
+        <p><a href="https://github.com/Khaerulmamu/Sonopolly">Lihat di GitHub</a></p>
+    </footer>
+</body>
+</html>
